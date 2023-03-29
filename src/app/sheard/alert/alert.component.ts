@@ -7,7 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class AlertComponent {
   @Input() color = 'blue'
-
   get bgColor() {
     return `bg-${this.color}-400`
   }

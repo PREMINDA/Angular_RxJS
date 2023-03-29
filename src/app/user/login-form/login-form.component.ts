@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class LoginFormComponent {
 
+  credentials = {
+    email: '',
+    password: ''
+  }
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  login() {
+    console.log(this.credentials)
+  }
+
 }

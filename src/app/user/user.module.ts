@@ -4,7 +4,7 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import {SheardModule} from '../sheard/sheard.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -17,10 +17,11 @@ import {ReactiveFormsModule} from '@angular/forms';
   exports: [
     AuthModalComponent,
   ],
-  imports: [
-    CommonModule,
-    SheardModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        SheardModule,
+        ReactiveFormsModule,
+        FormsModule
+    ]
 })
 export class UserModule { }
