@@ -5,6 +5,7 @@ import { TabContainerComponent } from './tab-container/tab-container.component';
 import { TabComponent } from './tab/tab.component';
 import { InputComponent } from './input/input.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
 
 
 
@@ -13,17 +14,20 @@ import {ReactiveFormsModule} from '@angular/forms';
     ModalComponent,
     TabContainerComponent,
     TabComponent,
-    InputComponent
+    InputComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports:[
     ModalComponent,
     TabComponent,
     TabContainerComponent,
-    InputComponent
-  ]
+    InputComponent,
+    AlertComponent
+  ],
+  providers: []
 })
 export class SheardModule { }
