@@ -61,7 +61,6 @@ export class RegistrationFormComponent {
     if(this.registerForm.valid){
       const user = this.registerForm.value as unknown as IUser;
       try {
-        console.log(user)
         await this.auth.createUser(user)
       } catch(e) {
         console.error(e)
