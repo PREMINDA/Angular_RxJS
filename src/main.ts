@@ -6,7 +6,7 @@ import { environment } from './environments/environment';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 
-if (environment.production) {
+if (false ) {
   enableProdMode();
 }
 
