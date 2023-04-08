@@ -53,7 +53,7 @@ export class RegistrationFormComponent {
     password: this.password,
     confirm_password: this.confirm_password,
     phoneNumber: this.phoneNumber
-  },[RegisterValidator.match])
+  },[RegisterValidator.match('password','confirm_password')])
 
   async register() {
     this.showAlert = true
