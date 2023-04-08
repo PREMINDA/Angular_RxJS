@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import IUser from '../../modals/user.modal';
+import {RegisterValidator} from '../validators/register-validator';
 
 
 @Component({
@@ -52,7 +53,7 @@ export class RegistrationFormComponent {
     password: this.password,
     confirm_password: this.confirm_password,
     phoneNumber: this.phoneNumber
-  })
+  },[RegisterValidator.match])
 
   async register() {
     this.showAlert = true
