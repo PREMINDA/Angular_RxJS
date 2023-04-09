@@ -9,6 +9,7 @@ export class RegisterValidator {
         return {controlNoteFound:false};
       };
       const error = control.value === matchingControl.value ? null : {noMatch:true};
+      matchingControl.setErrors(error);
       return error;
     }
   }
