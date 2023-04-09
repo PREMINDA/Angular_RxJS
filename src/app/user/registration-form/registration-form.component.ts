@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import IUser from '../../modals/user.modal';
 import {RegisterValidator} from '../validators/register-validator';
+import {EmailTaken} from '../validators/email-taken';
 
 
 @Component({
@@ -12,7 +13,8 @@ import {RegisterValidator} from '../validators/register-validator';
 })
 export class RegistrationFormComponent {
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private emailTaken: EmailTaken
   ) {
 
   };
@@ -23,8 +25,8 @@ export class RegistrationFormComponent {
   ])
   email:FormControl = new FormControl('', [
     Validators.required,
-    Validators.email
-  ])
+    Validators.email,
+  ],[ this.emailTaken.validate])
   age:FormControl = new FormControl('', [
     Validators.required,
     Validators.min(18),
