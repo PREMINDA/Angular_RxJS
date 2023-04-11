@@ -26,7 +26,9 @@ export class RegistrationFormComponent {
   email:FormControl = new FormControl('', [
     Validators.required,
     Validators.email,
-  ],[ this.emailTaken.validate])
+  ],[
+    this.emailTaken.validate
+  ])
   age:FormControl = new FormControl('', [
     Validators.required,
     Validators.min(18),
