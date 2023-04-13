@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import {ActivatedRoute, Params} from '@angular/router';
   templateUrl: './clip.component.html',
   styleUrls: ['./clip.component.css']
 })
-export class ClipComponent {
+export class ClipComponent implements OnDestroy{
   id = ''
 
   constructor(public route: ActivatedRoute) { }
@@ -16,4 +16,9 @@ export class ClipComponent {
       this.id = params.id
     })
   }
+
+  ngOnDestroy(): void {
+  }
+
+
 }

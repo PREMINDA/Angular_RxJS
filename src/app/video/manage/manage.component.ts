@@ -16,8 +16,7 @@ export class ManageComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params:Params)=>{
-      this.videoOrder = params.sort === '2' ? params.sort : '1';
-
+      this.videoOrder = params.params.sort === '2' ? params.params.sort : '1';
     })
 
   }
