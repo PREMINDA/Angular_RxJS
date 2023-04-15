@@ -5,6 +5,7 @@ import { VideoRoutingModule } from './video-routing.module';
 import { ManageComponent } from './manage/manage.component';
 import { UploadComponent } from './upload/upload.component';
 import {SheardModule} from '../sheard/sheard.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {SheardModule} from '../sheard/sheard.module';
   imports: [
     CommonModule,
     VideoRoutingModule,
-    SheardModule
+    SheardModule,
+    ReactiveFormsModule
   ]
 })
 export class VideoModule { }

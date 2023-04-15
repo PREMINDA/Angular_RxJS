@@ -20,7 +20,7 @@
     </div>
 
     <ng-template #uploadFormCtr>
-      <form>
+      <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
         <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div class="border-8 cursor-pointer border-green-400">
@@ -36,8 +36,8 @@
 
         <div class="mt-4">
           <label class="block text-xl mb-4">Title</label>
-          <input type="text" class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-            duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400">
+          <app-input placeholder="Enter Your title" [control]="title">
+          </app-input>
         </div>
 
         <div class="mt-4 text-right">
