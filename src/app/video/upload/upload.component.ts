@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent {
+  isDragover = false;
+  file: File | null = null;
+  nextStep = false;
 
+  storeFile($event: Event) {
+    this.isDragover = false;
+
+    this.file = ($event as DragEvent).dataTransfer ?
+      ($event as DragEvent).dataTransfer?.files.item(0) ?? null :
+      ($event.target as HTMLInputElement).files?.item(0) ?? null;
+
+    if(!this.file || this.file.type !== 'video/mp4') {
+      return;
+    }
+    console.log(this.file)
+    this.nextStep = true;
+
+  }
 }
