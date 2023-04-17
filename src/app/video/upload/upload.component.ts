@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AngularFireStorage} from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-upload',
@@ -19,6 +20,10 @@ export class UploadComponent {
     title: this.title
   })
 
+  constructor(
+    private storage: AngularFireStorage
+  ) {
+  }
 
   storeFile($event: Event) {
     this.isDragover = false;
@@ -40,6 +45,6 @@ export class UploadComponent {
   }
 
   uploadFile() {
-
+    const  clipPath = `clip?${this.file?.name}`;
   }
 }
