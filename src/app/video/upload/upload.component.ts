@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFireStorage} from '@angular/fire/compat/storage';
+import {v4 as uuid} from 'uuid'
 
 @Component({
   selector: 'app-upload',
@@ -45,6 +46,8 @@ export class UploadComponent {
   }
 
   uploadFile() {
-    const  clipPath = `clip?${this.file?.name}`;
+    const fileName = uuid();
+    const  clipPath = `clip?${fileName}.mp4`;
+    this.storage.upload(clipPath,this.file);
   }
 }
