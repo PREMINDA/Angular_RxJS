@@ -20,6 +20,9 @@
     </div>
 
     <ng-template #uploadFormCtr>
+      <app-alert *ngIf="showAlert" [color]="showColor">
+        <p>{{alertMsg}}</p>
+      </app-alert>
       <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
         <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
