@@ -12,6 +12,10 @@ export class UploadComponent {
   isDragover = false;
   file: File | null = null;
   nextStep = false;
+  showAlert = true;
+  showColor = 'blue';
+  alertMsg = 'Please Wait!';
+  inSubmission = false;
 
   title = new FormControl('', [
     Validators.required,
@@ -46,8 +50,13 @@ export class UploadComponent {
   }
 
   uploadFile() {
+    this.showAlert = true;
+    this.showColor = 'blue';
+    this.alertMsg = 'Please Wait!';
+    this.inSubmission = false;
+
     const fileName = uuid();
-    const  clipPath = `clip?${fileName}.mp4`;
+    const  clipPath = `clip/${fileName}.mp4`;
     this.storage.upload(clipPath,this.file);
   }
 }
