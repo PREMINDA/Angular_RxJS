@@ -12,7 +12,7 @@ export class UploadComponent {
   isDragover = false;
   file: File | null = null;
   nextStep = false;
-  showAlert = true;
+  showAlert = false;
   showColor = 'blue';
   alertMsg = 'Please Wait!';
   inSubmission = false;
@@ -53,7 +53,7 @@ export class UploadComponent {
     this.showAlert = true;
     this.showColor = 'blue';
     this.alertMsg = 'Please Wait!';
-    this.inSubmission = false;
+    this.inSubmission = true;
 
     const fileName = uuid();
     const  clipPath = `clip/${fileName}.mp4`;

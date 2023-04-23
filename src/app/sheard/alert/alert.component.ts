@@ -1,14 +1,20 @@
-import {Component, Input} from '@angular/core';
+import {AfterContentInit, Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent {
+export class AlertComponent implements  AfterContentInit{
   @Input() color = 'blue'
-  get bgColor() {
-    return `bg-${this.color}-400`
+  colorInTemp = 'bg-blue-400'
+  bgColor() {
+    this.colorInTemp = `bg-${this.color}-400`;
+  }
+
+
+  ngAfterContentInit(){
+    this.bgColor()
   }
 
   constructor() { }
