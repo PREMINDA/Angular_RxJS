@@ -22,7 +22,7 @@
     <ng-template #uploadFormCtr>
       <app-alert *ngIf="showAlert" [color]="showColor">
         <p>{{alertMsg}}</p>
-        <p>{{percentage | percent}}</p>
+        <p *ngIf="showPercentage">{{percentage | percent}}</p>
       </app-alert>
       <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
         <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
@@ -45,10 +45,10 @@
         </div>
 
         <div class="mt-4 text-right">
-          <button [disabled]="inSubmission" type="submit"
+          <button [disabled]="isSubmitted" type="submit"
                   [ngClass]="{
-                    'opacity-50':inSubmission,
-                    'hover:bg-indigo-700':!inSubmission
+                    'opacity-50':isSubmitted,
+                    'hover:bg-indigo-700':!isSubmitted
                   }"
                   class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-indigo-600 focus:outline-none">
             Publish
