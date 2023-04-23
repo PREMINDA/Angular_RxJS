@@ -6,6 +6,7 @@ import {last, switchMap} from "rxjs";
 import firebase from "firebase/compat/app";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import IClip from "../../modals/clip.modal";
+import {ClipService} from "../../services/clip.service";
 
 @Component({
   selector: 'app-upload',
@@ -34,7 +35,8 @@ export class UploadComponent {
 
   constructor(
     private storage: AngularFireStorage,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private clipService: ClipService
   ) {
     auth.user.subscribe(user=>this.user = user);
   }
@@ -84,7 +86,7 @@ export class UploadComponent {
           fileName: `${clipPath}.mp4`,
           url:url
         }
-        console.log(clipData)
+        this.clipService.createClip(clipData);
         this.showColor = 'green';
         this.alertMsg = 'Success !';
         this.showPercentage = false;
