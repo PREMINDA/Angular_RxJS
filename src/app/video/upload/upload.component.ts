@@ -16,7 +16,7 @@ export class UploadComponent {
   showColor = 'blue';
   alertMsg = 'Please Wait!';
   inSubmission = false;
-
+  percentage = 0;
   title = new FormControl('', [
     Validators.required,
     Validators.minLength(3)
@@ -24,6 +24,7 @@ export class UploadComponent {
   uploadForm = new FormGroup({
     title: this.title
   })
+
 
   constructor(
     private storage: AngularFireStorage
@@ -57,6 +58,10 @@ export class UploadComponent {
 
     const fileName = uuid();
     const  clipPath = `clip/${fileName}.mp4`;
-    this.storage.upload(clipPath,this.file);
+    const task = this.storage.upload(clipPath,this.file);
+    task.percentageChanges().subscribe(progress =>{
+      this.percentage = progress as number/100
+    })
+
   }
 }

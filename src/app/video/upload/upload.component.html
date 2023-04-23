@@ -22,6 +22,7 @@
     <ng-template #uploadFormCtr>
       <app-alert *ngIf="showAlert" [color]="showColor">
         <p>{{alertMsg}}</p>
+        <p>{{percentage | percent}}</p>
       </app-alert>
       <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
         <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
