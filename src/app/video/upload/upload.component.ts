@@ -61,6 +61,7 @@ export class UploadComponent {
   }
 
   uploadFile() {
+    this.uploadForm.disable();
     this.showAlert = true;
     this.showColor = 'blue';
     this.alertMsg = 'Please Wait!';
@@ -95,6 +96,7 @@ export class UploadComponent {
         this.showColor = 'red';
         this.alertMsg = 'Try again';
         this.isSubmitted = false;
+        this.uploadForm.enable();
       }
     })
 
